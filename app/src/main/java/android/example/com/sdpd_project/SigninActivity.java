@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.example.com.sdpd_project.database.DataSources;
 import android.example.com.sdpd_project.model.DataItem;
-import android.example.com.sdpd_project.model.UserData;
 import android.example.com.sdpd_project.sample.SampleDataProvider;
-import android.example.com.sdpd_project.sample.SampleUserDetailsProvider;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -30,7 +28,6 @@ public class SigninActivity extends AppCompatActivity  {
     private EditText mPasswordView;
 
     // Login Database Details
-    List<UserData> userLoginList = SampleUserDetailsProvider.userDataList;
     DataSources mDataSource;
     List<DataItem> dataItemList = SampleDataProvider.dataItemList;
 
@@ -42,7 +39,7 @@ public class SigninActivity extends AppCompatActivity  {
         mDataSource = new DataSources(this);
         mDataSource.open();
         mDataSource.seedDatabaseItem(dataItemList);
-        mDataSource.seedDatabaseUser(userLoginList);
+
 
 
         Toast.makeText(this, "Database acquired!", Toast.LENGTH_SHORT).show();

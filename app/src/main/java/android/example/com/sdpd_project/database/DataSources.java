@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.example.com.sdpd_project.model.DataItem;
-import android.example.com.sdpd_project.model.UserData;
 
 import java.util.List;
 
@@ -31,11 +30,6 @@ public class DataSources {
         mDbHelper.close();
     }
 
-    public UserData createUser(UserData user) {
-        ContentValues values = user.toValues();
-        mDatabase.insert(UserDetails.USER_DETAILS, null, values);
-        return user;
-    }
 
     public DataItem createItem(DataItem item) {
         ContentValues values = item.toValues();
@@ -43,9 +37,7 @@ public class DataSources {
         return item;
     }
 
-    public long getUserDataItemsCount() {
-        return DatabaseUtils.queryNumEntries(mDatabase, UserDetails.USER_DETAILS);
-    }
+
     public long getItemDataItemsCount() {
         return DatabaseUtils.queryNumEntries(mDatabase, ItemsTable.TABLE_ITEMS);
     }
@@ -63,21 +55,5 @@ public class DataSources {
             }
         }
     }
-
-
-    public void seedDatabaseUser(List<UserData> userLoginList) {
-        long numItems = getUserDataItemsCount();
-        if (numItems == 0) {
-            for (UserData user :
-                    userLoginList) {
-                try {
-                    createUser(user);
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
 
 }

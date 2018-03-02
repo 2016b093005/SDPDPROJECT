@@ -20,13 +20,11 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
                 sqLiteDatabase.execSQL(ItemsTable.SQL_CREATE);
-                sqLiteDatabase.execSQL(UserDetails.SQL_CREATE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
                 sqLiteDatabase.execSQL(ItemsTable.SQL_DELETE);
-                sqLiteDatabase.execSQL(UserDetails.SQL_DELETE);
-                onCreate(sqLiteDatabase);
+                 onCreate(sqLiteDatabase);
     }
 }
