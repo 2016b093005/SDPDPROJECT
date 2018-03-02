@@ -24,8 +24,7 @@
         </activity>
 
         <activity android:name=".MainActivity"
-            android:label="Main Activity"
-            android:parentActivityName=".SigninActivity"/>
+            android:label="Main Activity" />
 
         <activity android:name=".ListViewDisplay"
             android:label="ListViewDisplay"
