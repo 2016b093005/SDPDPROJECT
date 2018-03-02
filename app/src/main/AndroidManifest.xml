@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="android.example.com.sdpd_project">
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="android.example.com.sdpd_project.SigninActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:label="Main Activity"
+            android:parentActivityName=".SigninActivity"/>
+
+        <activity android:name=".ListViewDisplay"
+            android:label="ListViewDisplay"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".RecyclerViewDisplay"
+            android:label="RecyclerViewDisplay"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".PrefsActivity"
+            android:label="Setting tab"
+            android:parentActivityName=".MainActivity"
+            />
+
+
+        <activity android:name=".DetailsActivity"
+            android:label="Details Activity"
+            android:parentActivityName=".RecyclerViewDisplay" />
+
+    </application>
+
+</manifest>
