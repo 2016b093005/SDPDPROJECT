@@ -92,7 +92,7 @@ public class SigninActivity extends AppCompatActivity  {
 
         //Writing Latest Email Id To Shared Preference
 
-        if (email == null) {
+        if (email != null) {
 
             SharedPreferences.Editor editor =
                     getSharedPreferences(MY_GLOBAL_PREFS, MODE_PRIVATE).edit();
